@@ -338,18 +338,11 @@
 			  /* Read more about isConfirmed, isDenied below */
 			  if (confirm.isConfirmed) { 
 				  $.ajax({ 
-						url: "<%=request.getContextPath()%>/admin/dbcn/executeBackup.do?pwd="+"111", 
+						url: "<%=request.getContextPath()%>/admin/dbcn/executeBackup.do", 
 						type: "POST",
 						success: function(result){
 							if(result == "denied"){
 								location.href="<%=request.getContextPath()%>/security/accessDenied";
-							} else if(result == "wrongPwd") {
-								Swal.fire({
-									  text: '비밀번호가 일치하지 않습니다.',
-									  icon: 'error',
-									  confirmButtonColor: '#007bff',
-									  confirmButtonText: '확인'
-									});
 							} else {
 								location.href="<%=request.getContextPath()%>/admin/dbcn/list.do";
 							}
@@ -372,18 +365,11 @@
 			  /* Read more about isConfirmed, isDenied below */
 			  if (confirm.isConfirmed) { 
 				  $.ajax({ 
-						url: "<%=request.getContextPath()%>/admin/dbcn/executeRecover.do?pwd="+"111", 
+						url: "<%=request.getContextPath()%>/admin/dbcn/executeRecover.do?", 
 						type: "POST",
 						success: function(result){
 							if(result == "denied"){
 								location.href="<%=request.getContextPath()%>/security/accessDenied";
-							} else if(result == "wrongPwd") {
-								Swal.fire({
-									  text: '비밀번호가 일치하지 않습니다.',
-									  icon: 'error',
-									  confirmButtonColor: '#007bff',
-									  confirmButtonText: '확인'
-									});
 							} else {
 								location.href="<%=request.getContextPath()%>/admin/dbcn/list.do";
 							}

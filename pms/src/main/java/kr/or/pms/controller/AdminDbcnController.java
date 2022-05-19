@@ -133,18 +133,18 @@ public class AdminDbcnController {
 		String role = loginUser.getAuthGrpCode();
 		String msg = "";
 		if(role.equals("ROLE_ADMIN")) {
-			String userId = loginUser.getUserId();
-			String encryPwd = UserSha256.encrypt(pwd);
-			UserVO user = userService.getUserForLogin(userId);
-			
-			if(!user.getPwd().equals(encryPwd)) {
-				msg = "wrongPwd";
-			} else {
+//			String userId = loginUser.getUserId();
+//			String encryPwd = UserSha256.encrypt(pwd);
+//			UserVO user = userService.getUserForLogin(userId);
+//			
+//			if(!user.getPwd().equals(encryPwd)) {
+//				msg = "wrongPwd";
+//			} else {
 				
 				backupDbRuntime.launch();
 				
 				msg = "success";
-			}
+//			}
 			
 		} else {
 			msg = "denied";
@@ -160,18 +160,18 @@ public class AdminDbcnController {
 	public ResponseEntity<String> executeRecover(HttpSession session) throws Exception {
 		
 		ResponseEntity<String> entity = null;
-		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
-		String role = loginUser.getAuthGrpCode();
+//		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+//		String role = loginUser.getAuthGrpCode();
 		String msg = "";
 		
-		if(role.equals("ROLE_ADMIN")) {
+//		if(role.equals("ROLE_ADMIN")) {
 			
 			recoverDbRuntime.launch();
 			
 			msg = "success";
-		} else {
-			msg = "denied";
-		}
+//		} else {
+//			msg = "denied";
+//		}
 		
 		entity = new ResponseEntity<String>(msg, HttpStatus.OK);
 		
